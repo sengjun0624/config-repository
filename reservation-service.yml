@@ -20,7 +20,7 @@ spring:
         dispatchReservation-in-0:
           destination: reservation-dispatched
           group: ${spring.application.name}
-          bindings:
+
         acceptReservation-out-0:
           destination: reservation-accepted # 큐의 이름
       rabbit: # 스프링 클라우드 스트림 바인딩에 대한 RabbitMQ 설정
