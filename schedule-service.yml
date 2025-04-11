@@ -6,6 +6,15 @@ spring:
     name: schedule-service
 
   cloud:
+    function: # 스프링 클라우드에서 관리할 함수 정의
+      definition: schedule|confirm # schedule() -> confirm()으로 동작하도록 순서 지정
+    stream:
+      bindings:
+        scheduleconfirm-in-0:
+          destination: reservation-accepted # 예약 내역을 받아올거야 
+          group: ${spring.application.name}
+        scheduleconfirm-out-0:
+          destination: reservation-dispatched     
 
 
   rabbitmq:
